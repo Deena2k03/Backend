@@ -87,7 +87,7 @@ def contact_form(request):
             subject=f"New Contact Form - {name}",
             message="",
             from_email=settings.EMAIL_HOST_USER,
-            recipient_list=[settings.EMAIL_HOST_USER],
+            recipient_list=[settings.EMAIL_HOST_PASSWORD],
             html_message=admin_html_message,
             fail_silently=False,
         )
@@ -179,5 +179,6 @@ def contact_form(request):
             {"status": "error", "message": "Server error"},
             status=500
         )
+
 
 
