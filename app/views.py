@@ -1,11 +1,13 @@
 from django.views.decorators.csrf import csrf_exempt
-from rest_framework.decorators import api_view
+from rest_framework.decorators import api_view, permission_classes
+from rest_framework.permissions import AllowAny
 from rest_framework.response import Response
 from django.core.mail import send_mail
 from django.conf import settings
 
 @csrf_exempt
 @api_view(['POST'])
+@permission_classes([AllowAny])
 def contact_form(request):
     try:
         name = request.data.get('name')
@@ -177,4 +179,5 @@ def contact_form(request):
             {"status": "error", "message": "Server error"},
             status=500
         )
+
 
