@@ -49,7 +49,7 @@ INSTALLED_APPS = [
     "django.contrib.messages",
     "django.contrib.staticfiles",
     "rest_framework",
-    "app",,
+    "app",
 ]
 
 MIDDLEWARE = [
@@ -144,6 +144,7 @@ EMAIL_PORT = 587
 EMAIL_USE_TLS = True
 EMAIL_HOST_USER = 'tlepubwelfare@gmail.com'
 EMAIL_HOST_PASSWORD = 'nbur cpba hdid qsun'  # Use app password or environment variable in production
+
 
 
 
