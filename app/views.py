@@ -1,9 +1,11 @@
-from rest_framework.decorators import api_view
+from rest_framework.decorators import api_view, permission_classes
+from rest_framework.permissions import AllowAny
 from rest_framework.response import Response
 from django.core.mail import send_mail
 from django.conf import settings
 
-@api_view(['POST'])
+@api_view(["POST", "OPTIONS"])
+@permission_classes([AllowAny])
 def contact_form(request):
     try:
         name = request.data.get('name')
@@ -81,7 +83,7 @@ def contact_form(request):
 
         send_mail(
             subject=f"New Contact Form - {name}",
-            message="",
+            message="f"Name: {name}\nEmail: {email}\nPhone: {phone}\n\n{message}",
             from_email=settings.EMAIL_HOST_USER,
             recipient_list=[settings.EMAIL_HOST_USER],
             html_message=admin_html_message,
@@ -160,7 +162,7 @@ def contact_form(request):
 
         send_mail(
             subject="Thanks for contacting Welfare Healthtech",
-            message="",
+            message="We received your message. Our team will contact you shortly.",
             from_email=settings.EMAIL_HOST_USER,
             recipient_list=[email],
             html_message=user_html_message,
@@ -172,6 +174,7 @@ def contact_form(request):
     except Exception as e:
         print("CONTACT FORM ERROR:", e)
         return Response(
-            {"status": "error", "message": "Server error"},
+            {"status": "error", "message": "Email service failed"},
             status=500
         )
+
