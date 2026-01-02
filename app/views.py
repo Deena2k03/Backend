@@ -83,7 +83,7 @@ def contact_form(request):
 
         send_mail(
             subject=f"New Contact Form - {name}",
-            message="f"Name: {name}\nEmail: {email}\nPhone: {phone}\n\n{message}",
+            message=f"Name: {name}\nEmail: {email}\nPhone: {phone}\n\n{message}",
             from_email=settings.EMAIL_HOST_USER,
             recipient_list=[settings.EMAIL_HOST_USER],
             html_message=admin_html_message,
@@ -177,4 +177,5 @@ def contact_form(request):
             {"status": "error", "message": "Email service failed"},
             status=500
         )
+
 
