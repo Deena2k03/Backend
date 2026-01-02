@@ -25,7 +25,7 @@ SECRET_KEY = 'django-insecure-78=jnn_xpzmzsa6d%nl6%qgn0o)$o^d(8^q=8y+j5#pdz-6q_g
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ["*"]
 
 
 # Application definition
@@ -133,3 +133,4 @@ EMAIL_PORT = 587
 EMAIL_USE_TLS = True
 EMAIL_HOST_USER = 'tlepubwelfare@gmail.com'
 EMAIL_HOST_PASSWORD = 'nbur cpba hdid qsun'  # Use app password or environment variable in production
+
