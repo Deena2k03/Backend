@@ -27,7 +27,7 @@ DEBUG = True
 
 ALLOWED_HOSTS = ["*"]
 
-
+CORS_ALLOWED_ORIGINS = ["*"]
 # Application definition
 
 INSTALLED_APPS = [
@@ -133,4 +133,5 @@ EMAIL_PORT = 587
 EMAIL_USE_TLS = True
 EMAIL_HOST_USER = 'tlepubwelfare@gmail.com'
 EMAIL_HOST_PASSWORD = 'nbur cpba hdid qsun'  # Use app password or environment variable in production
+
 
